@@ -62,7 +62,7 @@ const Dashboard = async () => {
         >
           <div>
             <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div>{t.description}</div>
+            <div className='text-justify'>{t.description}</div>
           </div>
 
           <div className="flex gap-2">
