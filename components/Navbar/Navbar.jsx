@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
+import logo from 'public/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,8 @@ const Navbar = () => {
       {/* Logo container */}
       <div className="flex items-center  mr-6 lg:mr-72">
         <Image
-          src=""
+          src={logo}
+          
           className="h-[120px] w-[120px] object-contain"
           alt="Logo"
         />
