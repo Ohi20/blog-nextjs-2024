@@ -58,16 +58,10 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="/portfolio"
+            href="/blogs"
             className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
-            Works
-          </Link>
-          <Link
-            href="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
-          >
-            Blog
+            Blogs
           </Link>
           <Link
             href="/about"
