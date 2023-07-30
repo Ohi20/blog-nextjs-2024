@@ -1,10 +1,10 @@
 import Link from 'next/link';
-
-import { HiPencilAlt } from 'react-icons/hi';
 // import { useSession } from 'next-auth/react';
 // import { useRouter } from 'next/navigation';
 import React from 'react';
 import RemoveBtn from '@/components/RemoveBtn/RemoveBtn';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBlog, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 // import useSWR from 'swr';
 // import Loading from './Loading';
 
@@ -49,31 +49,37 @@ const Dashboard = async () => {
 
   // if (session.status === 'authenticated') {
   return (
-    <>
-      <div>
+    <div className='px-12'>
+    <h1 className='text-4xl text-center text-[#b64a13] mb-8 font-semibold'>Add and Update your blogs <span><FontAwesomeIcon icon={faBlog} /></span></h1>
+      <div className='flex justify-center items-center mb-8'>
         <Link href={'/dashboard/addTopic'}>
-          <button>Add Topic</button>
+          <button className='p-3 cursor-pointer outline-none bg-[#b64a13] text-white rounded'>Add Blog</button>
         </Link>
       </div>
       {topics.map((t) => (
         <div
           key={t._id}
-          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
+          className="grid grid-cols-1 p-6 text-center border-2 border-[#b64a13] mb-8 rounded-lg sm:p-8"
         >
           <div>
-            <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div className='text-justify'>{t.description}</div>
+            <h2 className="mb-2 text-3xl font-bold dark:text-[#D7D7D7]">{t.title}</h2>
+            <div className='mb-5 text-base sm:text-lg dark:text-[#D7D7D7] text-justify'>{t.description}</div>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex justify-center items-center gap-4">
+            <div>
             <RemoveBtn id={t._id} />
-            <Link href={`/dashboard/editTopic/${t._id}`}>
-              <HiPencilAlt size={24} />
+            </div>
+           
+           <Link className='flex flex-row justify-center items-center' href={`/dashboard/editTopic/${t._id}`}>
+           <FontAwesomeIcon icon={faPenToSquare} />
+              <p>Edit</p>
             </Link>
+           
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 // }

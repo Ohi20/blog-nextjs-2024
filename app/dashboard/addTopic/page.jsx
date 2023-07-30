@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Button from '@/components/Button/Button';
+import Blog from 'public/blog.png';
+import Image from 'next/image';
 
-export default function AddTopic() {
+ const AddTopic = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -36,30 +39,46 @@ export default function AddTopic() {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+  return (    
+    <div className="my-8 px-12">
+      <h1 className="text-4xl text-center text-[#b64a13] mb-10 font-semibold">Add a blog</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="mb-8 flex-1 relative h-[300px] w-[300px]">
+          <Image
+            src={Blog}
+            fill={true}
+            sizes=""
+            alt="contact"
+            className="object-fit w-[300px] h-[300px]"
+          />
+        </div>
+        
+        <form onSubmit={handleSubmit} className="mb-8 flex flex-col gap-8">
       <input
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        className="border border-slate-500 px-8 py-2"
+        className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         type="text"
-        placeholder="Topic Title"
+        placeholder="Blog Title"
       />
 
-      <input
+      <textarea
         onChange={(e) => setDescription(e.target.value)}
         value={description}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="Topic Description"
+        className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
+        placeholder="Blog Description"
+        cols="30"
+        rows="10"
       />
 
-      <button
-        type="submit"
-        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
-      >
-        Add Topic
-      </button>
+    <div className='flex justify-center items-center'>
+    <Button url="#" type="submit" text="Post"/>
+    </div>
     </form>
+        </div>
+        
+      </div>
   );
 }
+
+export default AddTopic;

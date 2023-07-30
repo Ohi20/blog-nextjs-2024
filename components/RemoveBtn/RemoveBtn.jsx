@@ -1,7 +1,7 @@
 'use client';
-
-import { HiOutlineTrash } from 'react-icons/hi';
 import { useRouter } from 'next/navigation';
+import { faEraser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function RemoveBtn({ id }) {
   const router = useRouter();
@@ -20,8 +20,9 @@ export default function RemoveBtn({ id }) {
   };
 
   return (
-    <button onClick={removeTopic} className="text-red-400">
-      <HiOutlineTrash size={24} />
+    <button onClick={removeTopic} className='flex justify-center items-center text-red-400 '>
+      <FontAwesomeIcon icon={faEraser} size={24} />
+      <p className='text-red-400'>Delete</p>
     </button>
   );
 }

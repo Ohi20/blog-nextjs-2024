@@ -5,16 +5,16 @@ import fb from 'public/1.png';
 import insta from 'public/2.png';
 import twit from 'public/3.png';
 import yt from 'public/4.png';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 const Footer = () => {
   return (
     <div className="h-[50px] text-md flex flex-col lg:flex-row items-center justify-between">
       <div className="dark:text-[#bbb] light:text-black">
-        <span className="mr-2 text-[#53c28b]">
-          {/* <FontAwesomeIcon icon={faCopyright} /> */}
+        <span className="mr-2 text-[#b64a13]">
+          <FontAwesomeIcon icon={faCopyright} />
         </span>
         2023 Castle. All rights reserved
       </div>
@@ -25,7 +25,7 @@ const Footer = () => {
               src={insta}
               width={15}
               height={15}
-              className="opacity-50 cursor-pointer"
+              className="opacity-80 cursor-pointer"
               alt="instagram"
             />
           </Link>
@@ -34,7 +34,7 @@ const Footer = () => {
               src={fb}
               width={15}
               height={15}
-              className="opacity-50 cursor-pointer"
+              className="opacity-80 cursor-pointer"
               alt="facebook"
             />
           </Link>
@@ -46,7 +46,7 @@ const Footer = () => {
               src={twit}
               width={15}
               height={15}
-              className="opacity-50 cursor-pointer"
+              className="opacity-80 cursor-pointer"
               alt="twitter"
             />
           </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               src={yt}
               width={15}
               height={15}
-              className="opacity-50 cursor-pointer"
+              className="opacity-80 cursor-pointer"
               alt="youtube"
             />
           </Link>

@@ -1,3 +1,5 @@
+import { faBlog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const getTopics = async () => {
@@ -20,20 +22,17 @@ const Blogs = async () => {
   const { topics } = await getTopics();
 
   return (
-    <>
-      {topics.map((t) => (
-        <div
-          key={t._id}
-          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
-        >
-          <div>
-            <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div className="text-justify">{t.description}</div>
-          </div>
-        </div>
-      ))}
-    </>
-  );
-}
+    <div className="px-12">
+      <h1 className="text-4xl text-center mb-8 text-[#b64a13] font-semibold">Here are some blogs for you <span><FontAwesomeIcon icon={faBlog} /></span></h1>
+ {topics.map((t) => (
+<div class="grid grid-cols-1 p-6 text-center border-2 border-[#b64a13] mb-8 rounded-lg sm:p-8">
+    <h5 class="mb-2 text-3xl font-bold dark:text-[#D7D7D7]">{t.title}</h5>
+    <p class="mb-5 text-base sm:text-lg dark:text-[#D7D7D7] text-justify">{t.description}</p>
+</div>
+ ))}
+
+</div>
+);
+ }
 
 export default Blogs;
