@@ -1,13 +1,13 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import fb from 'public/1.png';
-import insta from 'public/2.png';
-import twit from 'public/3.png';
-import yt from 'public/4.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import Image from "next/image";
+import fb from "public/1.png";
+import insta from "public/2.png";
+import twit from "public/3.png";
+import yt from "public/4.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopyright } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -16,11 +16,14 @@ const Footer = () => {
         <span className="mr-2 text-[#b64a13]">
           <FontAwesomeIcon icon={faCopyright} />
         </span>
-        2023 Castle. All rights reserved
+        2024 Qouta. All rights reserved
       </div>
       <div>
         <div className="flex items-center gap-4">
-          <Link href="https://www.instagram.com/_optimus_11th/" target="_blank">
+          <Link
+            href="https://www.instagram.com/probaad_ahmed_/"
+            target="_blank"
+          >
             <Image
               src={insta}
               width={15}
