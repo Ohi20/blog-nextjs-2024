@@ -1,15 +1,14 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import DarkModeToggle from '../DarkModeToggle/DarkModeToggle';
-import logo from 'public/logo.png';
-import { signOut, useSession } from 'next-auth/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/navigation';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import logo from "public/logo.png";
+import { signOut, useSession } from "next-auth/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
-
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,14 +34,14 @@ const Navbar = () => {
           className="flex items-center px-3 py-2 rounded"
         >
           <svg
-            className={`fill-current h-3 w-3 ${isOpen ? 'hidden' : 'block'}`}
+            className={`fill-current h-3 w-3 ${isOpen ? "hidden" : "block"}`}
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
           <svg
-            className={`fill-current h-3 w-3 ${isOpen ? 'block' : 'hidden'}`}
+            className={`fill-current h-3 w-3 ${isOpen ? "block" : "hidden"}`}
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -54,64 +53,76 @@ const Navbar = () => {
       {/* Links container */}
       <div
         className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto gap-8 ${
-          isOpen ? 'block p-2 lg:border-none' : 'hidden'
+          isOpen ? "block p-2 lg:border-none" : "hidden"
         }`}
       >
+        <DarkModeToggle />
 
-<DarkModeToggle />
-
-        <div className="text-sm gap-4 font-bold lg:font-medium lg:flex-grow">
+        <div className="text-sm gap-4 text-[#B64A13] font-bold lg:font-medium lg:flex-grow">
           {/* <Link
             href="/"
             className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
             Home
           </Link> */}
-          <Link 
-          href='/'
-          className={router.pathname == "/" ? "active" : "block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"}
+          <Link
+            href="/"
+            className={
+              router.pathname == "/"
+                ? "active"
+                : "block hover:text-[#ffffff] mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
+            }
           >
-          Home
+            Home
           </Link>
           <Link
             href="/blogs"
-            className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
+            className="block hover:text-[#ffffff] mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
             Blogs
           </Link>
           <Link
             href="/about"
-            className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
+            className="block hover:text-[#ffffff] mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
+            className="block hover:text-[#ffffff] mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
             Contact
           </Link>
           <Link
             href="/dashboard"
-            className="block mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
+            className="block hover:text-[#ffffff] mt-4 lg:inline-block lg:mt-0 lg:text-xl mr-4"
           >
             Dashboard
           </Link>
-{
-  session.status === 'authenticated' ? <button className="mt-2 p-1 outline-none bg-[#b64a13] text-white pointer rounded"
-  onClick={signOut}><span className='mr-2'><FontAwesomeIcon icon={faArrowLeft} /></span>logout</button> : <Link 
-  href="/login"
-  className="lg:inline-block lg:mt-0 mr-4"
-  >
-  <button className="mt-2 p-1 outline-none bg-[#b64a13] text-white pointer rounded"><span className='mr-2'><FontAwesomeIcon icon={faArrowRight} /></span>
-              Login
+          {session.status === "authenticated" ? (
+            <button
+              className="mt-2 p-1 outline-none bg-red-500 text-white pointer rounded"
+              onClick={signOut}
+            >
+              <span className="mr-2">
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </span>
+              logout
             </button>
-  </Link>
-}
+          ) : (
+            <Link href="/login" className="lg:inline-block lg:mt-0 mr-4">
+              <button className="mt-2 p-1 outline-none bg-[#b64a13] text-white pointer rounded">
+                <span className="mr-2">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </span>
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

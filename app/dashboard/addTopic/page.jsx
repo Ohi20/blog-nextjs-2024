@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Button from '@/components/Button/Button';
 import Blog from 'public/blog.png';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
  const AddTopic = () => {
   const [title, setTitle] = useState('');
@@ -30,7 +31,7 @@ import Image from 'next/image';
       });
 
       if (res.ok) {
-        router.push('/');
+        router.push('/blogs');
       } else {
         throw new Error('Failed to create a topic');
       }
@@ -41,7 +42,7 @@ import Image from 'next/image';
 
   return (    
     <div className="my-8 px-12">
-      <h1 className="text-4xl text-center text-[#b64a13] mb-10 font-semibold">Add a blog</h1>
+      <h1 className="text-4xl text-center text-[#b64a13] mb-10 font-semibold">Add a blog <span><FontAwesomeIcon icon={faPlus} /></span></h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="mb-8 flex-1 relative h-[300px] w-[300px]">
           <Image
@@ -72,7 +73,9 @@ import Image from 'next/image';
       />
 
     <div className='flex justify-center items-center'>
-    <Button url="#" type="submit" text="Post"/>
+    <button className="p-3 cursor-pointer outline-none bg-[#b64a13] text-white rounded">
+        Post
+      </button>
     </div>
     </form>
         </div>

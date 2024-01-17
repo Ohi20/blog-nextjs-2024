@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import register from 'public/register.png';
+import Image from 'next/image';
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -36,44 +38,54 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4 my-8">
-      <h1 className="dark:text-[#bbb] light:text-black">Create an Account</h1>
-      <h2 className="font-semibold text-[#52c28b]">
-        Please sign up to see the dashboard.
-      </h2>
-      <form onSubmit={handleSubmit} className="w-[300px] flex flex-col gap-4">
+<div className="my-8 px-12">
+      <h1 className="text-4xl text-center text-[#b64a13] mb-8 font-semibold"> Create an Account</h1>
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <div className="h-[300px] w-[300px]">
+          <Image
+            src={register}
+            sizes=""
+            alt="contact"
+            className="object-contain w-[300px] h-[200px]"
+          />
+        </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Username"
           required
-          className="p-4 bg-transparent dark:text-[#bbb] light:text-black border border-[#bbb] dark:border-[#bbb] light:border-[#111] text-sm font-semibold"
+          className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         />
         <input
           type="text"
           placeholder="Email"
           required
-          className="p-4 bg-transparent dark:text-[#bbb] light:text-black border border-[#bbb] dark:border-[#bbb] light:border-[#111] text-sm font-semibold"
+          className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         />
         <input
           type="password"
           placeholder="Password"
           required
-          className="p-4 bg-transparent dark:text-[#bbb] light:text-black border border-[#bbb] dark:border-[#bbb] light:border-[#111] text-sm font-semibold"
+          className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         />
-        <button className="bg-[#52c28b] p-4 w-[300px] rounded-md border-none text-[#eee] hover:text-[#bbb]">
+        <button className="p-3 w-full cursor-pointer outline-none bg-[#b64a13] text-white rounded">
           Register
         </button>
         {/* Error message */}
         {err && 'Something went wrong!'}
-      </form>
-      <span className="text-[#bbb]">- OR -</span>
+<div className='flex flex-col justify-center items-center'>
+<span className="text-[#bbb]">- OR -</span>
       <Link
         className="underline font-medium dark:text-[#7d7c7c] light:text-black hover:text-[#bbb]"
         href="/login"
       >
         Login with an existing account
       </Link>
-    </div>
+      </div>
+      </form>
+</div>
+        
+      </div>
   );
 };
 

@@ -15,17 +15,16 @@ const Contact = () => {
   return (
     <div className="my-8 px-12">
       <h1 className="text-4xl text-center text-[#b64a13] mb-8 font-semibold">Lets Keep in Touch</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="flex-1 relative h-[300px] w-[300px]">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <div className="h-[300px] w-[300px]">
           <Image
             src={contact}
-            fill={true}
             sizes=""
             alt="contact"
-            className="object-fit w-[300px] h-[300px]"
+            className="object-contain w-[300px] h-[200px]"
           />
         </div>
-        <form className="flex-1 flex flex-col gap-8">
+        <form className="flex flex-col gap-4">
           <input
             type="text"
             name="name"
@@ -45,7 +44,9 @@ const Contact = () => {
             cols="30"
             rows="10"
           ></textarea>
-          <Button className="mx-auto" url="#" type="submit" text="Send" />
+         <div className='flex justify-center items-center'>
+         <Button className="mx-auto" url="#" type="submit" text="Send" />
+         </div>
         </form>
       </div>
     </div>

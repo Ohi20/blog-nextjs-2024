@@ -4,8 +4,9 @@ import { getProviders, signIn, useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Loading from '@/components/Loading/Loading';
-
-
+import login from 'public/login.png';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
   const session = useSession();
@@ -39,48 +40,57 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 my-8">
-      <h1 className="dark:text-[#bbb] light:text-black">
-        {success ? success : 'Welcome Back'}
-      </h1>
-      <h2 className="font-semibold text-[#52c28b]">
-        Please sign in to see the dashboard.
-      </h2>
-
-      <form onSubmit={handleSubmit} className="w-[300px] flex flex-col gap-4">
+<div className="my-8 px-12">
+      <h1 className="text-4xl text-center text-[#b64a13] mb-8 font-semibold"> {success ? success : 'Welcome Back'}</h1>
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <div className="h-[300px] w-[300px]">
+          <Image
+            src={login}
+            sizes=""
+            alt="contact"
+            className="object-contain w-[300px] h-[200px]"
+          />
+        </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           placeholder="Email"
           required
-          className="p-4 bg-transparent dark:text-[#bbb] light:text-black border border-[#bbb] dark:border-[#bbb] light:border-[#111] text-sm font-semibold"
+          className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         />
         <input
           type="password"
           placeholder="Password"
           required
-          className="p-4 bg-transparent dark:text-[#bbb] light:text-black border border-[#bbb] dark:border-[#bbb] light:border-[#111] text-sm font-semibold"
+          className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         />
-        <button className="bg-[#52c28b] p-4 w-[300px] rounded-md border-none text-[#eee] hover:text-[#bbb]">
-          Login
-        </button>
+        <div className='flex justify-center items-center'>
+        <button className="p-3 w-full cursor-pointer outline-none bg-[#b64a13] text-white rounded">
+        Login
+      </button>
+        </div>
         {error && error}
-      </form>
 
-      <button
+<div className='flex justify-center items-center'>
+<button
         onClick={() => {
           signIn('google');
         }}
-        className="bg-red-500 p-4 w-[300px] rounded-md border-none text-[#eee] hover:text-[#bbb]"
+        className="p-3 w-full cursor-pointer outline-none bg-red-500 text-white rounded"
       >
-        Login with Google
+        Login With Google<span><FontAwesomeIcon icon="fa-brands fa-google" /></span>
       </button>
-      <span className="text-[#bbb]">- OR -</span>
+</div>
+      
+      <div className='flex flex-col justify-center items-center'>
+      <span>- OR -</span>
       <Link
-        className="underline font-medium dark:text-[#7d7c7c] light:text-black hover:text-[#bbb]"
+        className="underline font-medium"
         href="/register"
       >
         Create new account
       </Link>
+      </div>
 
       {/* <button
         onClick={() => {
@@ -90,6 +100,8 @@ const Login = () => {
       >
         Login with Github
       </button> */}
+      </form>
+      </div>
     </div>
   );
 };

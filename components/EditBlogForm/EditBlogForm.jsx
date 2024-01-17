@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Edit from 'public/edit.png';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 export default function EditTopicForm({ id, title, description }) {
   const [newTitle, setNewTitle] = useState(title);
@@ -26,33 +30,53 @@ export default function EditTopicForm({ id, title, description }) {
       }
 
       router.refresh();
-      router.push('/');
+      router.push('/blogs');
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+    <div className="my-8 px-12">
+      <h1 className="text-4xl text-center text-[#b64a13] mb-10 font-semibold">Edit your blog <span><FontAwesomeIcon icon={faPenToSquare} /></span></h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="mb-8 flex-1 relative h-[300px] w-[300px]">
+          <Image
+            src={Edit}
+            fill={true}
+            sizes=""
+            alt="contact"
+            className="object-fit w-[300px] h-[300px]"
+          />
+        </div>
+        
+        <form onSubmit={handleSubmit} className="mb-8 flex flex-col gap-8">
       <input
         onChange={(e) => setNewTitle(e.target.value)}
         value={newTitle}
-        className="border border-slate-500 px-8 py-2"
+        className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         type="text"
-        placeholder="Topic Title"
+        placeholder="Blog Title"
       />
 
-      <input
+      <textarea
         onChange={(e) => setNewDescription(e.target.value)}
         value={newDescription}
-        className="border border-slate-500 px-8 py-2"
+        className="p-4 bg-transparent border border-[#b64a13] rounded text-sm font-semibold"
         type="text"
-        placeholder="Topic Description"
+        placeholder="Blog Description"
+        cols="30"
+        rows="10"
       />
 
-      <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
+    <div className='flex justify-center items-center'>
+    <button className="p-3 cursor-pointer outline-none bg-[#b64a13] text-white rounded">
         Update Topic
       </button>
+    </div>
     </form>
+        </div>
+        
+      </div>
   );
 }
