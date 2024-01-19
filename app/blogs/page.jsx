@@ -32,7 +32,10 @@ const Blogs = async () => {
       <div className="p-6 text-center mb-8 rounded-lg sm:p-8">
         <div className="card grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10 shadow-xl">
           {topics.map((t) => (
-            <div class="grid grid-cols-1 p-6 text-center border-2 border-[#b64a13] mb-8 rounded-lg sm:p-8">
+            <div
+              key={t._id}
+              class="grid grid-cols-1 p-6 text-center border-2 border-[#b64a13] mb-8 rounded-lg sm:p-8"
+            >
               <div className="card-body items-center text-center">
                 <h2 className="card-title text-3xl font-bold dark:text-[#D7D7D7]">
                   {t.title}
