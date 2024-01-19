@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
-// import { useSession } from 'next-auth/react';
-// import { useRouter } from 'next/navigation';
+// import { useSession } from "next-auth/react";
+// import { useRouter } from "next/navigation";
 import React from "react";
 import RemoveBtn from "@/components/RemoveBtn/RemoveBtn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,15 +40,15 @@ const Dashboard = async () => {
   //   fetcher
   // );
 
-  // if (session.status === 'loading') {
+  // if (session.status === "loading") {
   //   return <Loading />;
   // }
 
-  // if (session.status === 'unauthenticated') {
-  //   router?.push('/dashboard/login');
+  // if (session.status === "unauthenticated") {
+  //   router?.push("/dashboard/login");
   // }
 
-  // if (session.status === 'authenticated') {
+  // if (session.status === "authenticated") {
   return (
     <div className="px-12">
       <h1 className="text-4xl text-center text-[#b64a13] mb-8 font-semibold">
@@ -97,6 +98,6 @@ const Dashboard = async () => {
     </div>
   );
 };
-// }
+// };
 
 export default Dashboard;

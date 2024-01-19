@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import about from "public/about.jpg";
-import { faChess } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@/components/Button/Button";
 
 const About = () => {
